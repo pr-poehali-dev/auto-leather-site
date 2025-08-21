@@ -5,62 +5,68 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Icon from "@/components/ui/icon";
 
-const leatherProducts = [
-  {
-    id: 1,
-    name: "Премиум Наппа",
-    type: "Гладкая кожа",
-    application: "Салон автомобиля",
-    price: "15 000 ₽/кв.м",
-    image: "/img/9b95cf55-a512-4458-95f6-d25aa9aff1b9.jpg",
-    features: ["Мягкая текстура", "Износостойкая", "Легко чистится"]
-  },
-  {
-    id: 2,
-    name: "Спорт Перфорация",
-    type: "Перфорированная кожа",
-    application: "Спортивные сиденья",
-    price: "18 000 ₽/кв.м",
-    image: "/img/0ab1b143-aa46-46ae-b870-29e047b7ea8f.jpg",
-    features: ["Вентилируемая", "Спортивный стиль", "Эргономичная"]
-  },
-  {
-    id: 3,
-    name: "Люкс Винтаж",
-    type: "Винтажная кожа",
-    application: "Классические авто",
-    price: "22 000 ₽/кв.м",
-    image: "/img/d89a86a1-6b23-4910-ac14-d423dcc37cdd.jpg",
-    features: ["Уникальная патина", "Ручная обработка", "Эксклюзивный дизайн"]
-  },
-  {
-    id: 4,
-    name: "Карбон Эффект",
-    type: "Текстурированная кожа",
-    application: "Спорткары",
-    price: "25 000 ₽/кв.м",
-    image: "/img/9b95cf55-a512-4458-95f6-d25aa9aff1b9.jpg",
-    features: ["Карбоновый узор", "Высокотехнологичная", "Стильный вид"]
-  },
-  {
-    id: 5,
-    name: "Комфорт Плюс",
-    type: "Мягкая кожа",
-    application: "Семейные авто",
-    price: "12 000 ₽/кв.м",
-    image: "/img/0ab1b143-aa46-46ae-b870-29e047b7ea8f.jpg",
-    features: ["Доступная цена", "Комфортная", "Практичная"]
-  },
-  {
-    id: 6,
-    name: "Президент Класс",
-    type: "Премиум кожа",
-    application: "Представительские авто",
-    price: "35 000 ₽/кв.м",
-    image: "/img/d89a86a1-6b23-4910-ac14-d423dcc37cdd.jpg",
-    features: ["Высший класс", "Индивидуальная отделка", "Роскошный вид"]
-  }
-];
+const leatherProducts = {
+  mastrotto: [
+    {
+      id: 1,
+      name: "Mastrotto Classic",
+      type: "Наппа Mastrotto",
+      application: "Салон автомобиля",
+      price: "18 000 ₽/кв.м",
+      image: "/img/9b95cf55-a512-4458-95f6-d25aa9aff1b9.jpg",
+      features: ["Итальянская кожа", "Премиум качество", "Естественная фактура"]
+    },
+    {
+      id: 2,
+      name: "Mastrotto Sport",
+      type: "Наппа Mastrotto",
+      application: "Спортивные сиденья",
+      price: "22 000 ₽/кв.м",
+      image: "/img/0ab1b143-aa46-46ae-b870-29e047b7ea8f.jpg",
+      features: ["Спортивная отделка", "Износостойкая", "Антискольжение"]
+    }
+  ],
+  arzignano: [
+    {
+      id: 3,
+      name: "Arzignano Luxury",
+      type: "Наппа Arzignano",
+      application: "Представительский класс",
+      price: "25 000 ₽/кв.м",
+      image: "/img/d89a86a1-6b23-4910-ac14-d423dcc37cdd.jpg",
+      features: ["Элитная кожа", "Ручная выделка", "Роскошный блеск"]
+    },
+    {
+      id: 4,
+      name: "Arzignano Classic",
+      type: "Наппа Arzignano",
+      application: "Классические авто",
+      price: "20 000 ₽/кв.м",
+      image: "/img/9b95cf55-a512-4458-95f6-d25aa9aff1b9.jpg",
+      features: ["Традиционная выделка", "Долговечность", "Благородный вид"]
+    }
+  ],
+  steering: [
+    {
+      id: 5,
+      name: "Steering Premium",
+      type: "Наппа рулевая",
+      application: "Руль автомобиля",
+      price: "15 000 ₽/кв.м",
+      image: "/img/0ab1b143-aa46-46ae-b870-29e047b7ea8f.jpg",
+      features: ["Антискольжение", "Эргономичная", "Устойчива к износу"]
+    },
+    {
+      id: 6,
+      name: "Steering Sport",
+      type: "Наппа рулевая",
+      application: "Спортивный руль",
+      price: "17 000 ₽/кв.м",
+      image: "/img/d89a86a1-6b23-4910-ac14-d423dcc37cdd.jpg",
+      features: ["Перфорация", "Спортивный хват", "Дышащая структура"]
+    }
+  ]
+};
 
 const Index = () => {
   return (
@@ -140,12 +146,11 @@ const Index = () => {
           {/* Filters */}
           <div className="mb-12">
             <Tabs defaultValue="all" className="w-full">
-              <TabsList className="grid w-full grid-cols-5 max-w-4xl mx-auto">
+              <TabsList className="grid w-full grid-cols-4 max-w-4xl mx-auto">
                 <TabsTrigger value="all" className="font-body">Все товары</TabsTrigger>
-                <TabsTrigger value="smooth" className="font-body">Гладкая кожа</TabsTrigger>
-                <TabsTrigger value="perforated" className="font-body">Перфорированная</TabsTrigger>
-                <TabsTrigger value="textured" className="font-body">Текстурированная</TabsTrigger>
-                <TabsTrigger value="vintage" className="font-body">Винтажная</TabsTrigger>
+                <TabsTrigger value="mastrotto" className="font-body">Наппа Mastrotto</TabsTrigger>
+                <TabsTrigger value="arzignano" className="font-body">Наппа Arzignano</TabsTrigger>
+                <TabsTrigger value="steering" className="font-body">Наппа рулевая</TabsTrigger>
               </TabsList>
 
               <div className="flex flex-wrap gap-4 justify-center mt-8">
@@ -187,7 +192,133 @@ const Index = () => {
 
               <TabsContent value="all" className="mt-12">
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {leatherProducts.map((product) => (
+                  {Object.values(leatherProducts).flat().map((product) => (
+                    <Card key={product.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardHeader className="p-0">
+                        <div className="relative overflow-hidden rounded-t-lg">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <Badge className="absolute top-4 left-4 bg-primary/90 text-primary-foreground">
+                            {product.type}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <CardTitle className="font-heading text-xl mb-2">{product.name}</CardTitle>
+                        <p className="text-muted-foreground mb-4 font-body">{product.application}</p>
+                        
+                        <div className="space-y-3 mb-6">
+                          {product.features.map((feature, index) => (
+                            <div key={index} className="flex items-center space-x-2">
+                              <Icon name="Check" className="text-primary" size={16} />
+                              <span className="text-sm font-body">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-heading font-bold text-primary">{product.price}</span>
+                          <Button className="font-body">
+                            <Icon name="ShoppingCart" className="mr-2" size={16} />
+                            Заказать
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="mastrotto" className="mt-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {leatherProducts.mastrotto.map((product) => (
+                    <Card key={product.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardHeader className="p-0">
+                        <div className="relative overflow-hidden rounded-t-lg">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <Badge className="absolute top-4 left-4 bg-primary/90 text-primary-foreground">
+                            {product.type}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <CardTitle className="font-heading text-xl mb-2">{product.name}</CardTitle>
+                        <p className="text-muted-foreground mb-4 font-body">{product.application}</p>
+                        
+                        <div className="space-y-3 mb-6">
+                          {product.features.map((feature, index) => (
+                            <div key={index} className="flex items-center space-x-2">
+                              <Icon name="Check" className="text-primary" size={16} />
+                              <span className="text-sm font-body">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-heading font-bold text-primary">{product.price}</span>
+                          <Button className="font-body">
+                            <Icon name="ShoppingCart" className="mr-2" size={16} />
+                            Заказать
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="arzignano" className="mt-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {leatherProducts.arzignano.map((product) => (
+                    <Card key={product.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                      <CardHeader className="p-0">
+                        <div className="relative overflow-hidden rounded-t-lg">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                          <Badge className="absolute top-4 left-4 bg-primary/90 text-primary-foreground">
+                            {product.type}
+                          </Badge>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-6">
+                        <CardTitle className="font-heading text-xl mb-2">{product.name}</CardTitle>
+                        <p className="text-muted-foreground mb-4 font-body">{product.application}</p>
+                        
+                        <div className="space-y-3 mb-6">
+                          {product.features.map((feature, index) => (
+                            <div key={index} className="flex items-center space-x-2">
+                              <Icon name="Check" className="text-primary" size={16} />
+                              <span className="text-sm font-body">{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-center justify-between">
+                          <span className="text-2xl font-heading font-bold text-primary">{product.price}</span>
+                          <Button className="font-body">
+                            <Icon name="ShoppingCart" className="mr-2" size={16} />
+                            Заказать
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+
+              <TabsContent value="steering" className="mt-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {leatherProducts.steering.map((product) => (
                     <Card key={product.id} className="group hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
                       <CardHeader className="p-0">
                         <div className="relative overflow-hidden rounded-t-lg">
